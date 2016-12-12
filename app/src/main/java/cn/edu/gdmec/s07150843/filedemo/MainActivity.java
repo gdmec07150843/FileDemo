@@ -31,13 +31,13 @@ public class MainActivity extends AppCompatActivity {
         fDataStorage =Environment.getDataDirectory();
         fDownloadCacheDirectory =Environment.getDownloadCacheDirectory();
         fRootDirectory =Environment.getRootDirectory();
-        
+
         if(Environment.getExternalStorageState().equals(Environment.MEDIA_REMOVED)){
             Button btn=(Button)findViewById(R.id.externalStorageDirectory);
             btn.setEnabled(false);
         }
     }
-    public void PhoneDirecotry(View v){
+    public void phoneDirectory(View v){
         path=fPhonedirecotry.getPath();
         try {
             FileOutputStream fos=openFileOutput("test.txt",MODE_PRIVATE);
@@ -45,30 +45,30 @@ public class MainActivity extends AppCompatActivity {
             fos.close();
         } catch (Exception e) {
             e.printStackTrace();
-        } 
-    fileList(path);
+        }
+        listFiles(path);
     }
-    public void ExternalStoragePublicDirectory(View v){
+    public void externalStoragePublicDirectory(View v){
         path=fExternalStoragePublicDirectory.getAbsolutePath();
-        fileList(path);
+        listFiles(path);
     }
-    public void  ExternalStorageDirectory(View v){
+    public void  externalStorageDirectory(View v){
         path=fExternalStorageDirectory.getAbsolutePath();
-        fileList(path);
+        listFiles(path);
     }
     public void  dataStorage(View v){
         path=fDataStorage.getAbsolutePath();
-        fileList(path);
+        listFiles(path);
     }
     public void  downloadCacheDirectory(View v){
         path=fDownloadCacheDirectory.getAbsolutePath();
-        fileList(path);
+        listFiles(path);
     }
     public void  rootDirectory(View v){
         path=fRootDirectory.getAbsolutePath();
-        fileList(path);
+        listFiles(path);
     }
-    private boolean fileList(String path) {
+    private boolean listFiles(String path) {
         name ="路径"+path +"\n文件清单：\n";
         File file=new File(path);
         if(file.listFiles()!=null&&file.listFiles().length>0){
