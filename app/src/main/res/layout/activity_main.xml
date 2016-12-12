@@ -10,7 +10,8 @@
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="PhoneDicectory"/>
+        android:text="PhoneDirectory"
+        android:onClick="phoneDirectory"/>
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
